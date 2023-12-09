@@ -46,7 +46,7 @@ btnRoll.addEventListener('click', function () {
     const dice = Math.trunc(Math.random() * 6) + 1;
 
     diceEl.classList.remove('hidden');
-    diceEl.src = `dice-${dice}.png`;
+    diceEl.src = `./images/dice-${dice}.png`;
 
     if (dice !== 1) {
       // Add dice to current score
@@ -62,15 +62,12 @@ btnRoll.addEventListener('click', function () {
 
 btnHold.addEventListener('click', function () {
   if (playing) {
-    // 1. Add current score to active player's score
     scores[activePlayer] += currentScore;
-    // scores[1] = scores[1] + currentScore
 
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
 
     if (scores[activePlayer] >= 100) {
-      // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
 
